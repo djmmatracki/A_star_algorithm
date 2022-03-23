@@ -140,7 +140,7 @@ async function a_star_algo(M, start, end, points) {
 
     while (!queue.is_empty()) {
         current = queue.dequeue();
-        drawLine(points[current], points[prevVertex[current]], 4, "blue");
+        drawLine(points[current], points[prevVertex[current]], 5, "blue");
         await sleep(500);
 
         if (current === end) {
@@ -153,7 +153,7 @@ async function a_star_algo(M, start, end, points) {
 
                 if (new_cost < shortestDistList[i]) {
                     shortestDistList[i] = new_cost;
-                    priority = new_cost + M[i][end];
+                    priority = new_cost + eucDist(points[i], points[end]);
                     queue.enqueue(i, priority);
                     prevVertex[i] = current;
                 }
