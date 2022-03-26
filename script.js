@@ -141,7 +141,7 @@ async function a_star_algo(M, start, end, points) {
     while (!queue.is_empty()) {
         current = queue.dequeue();
         drawLine(points[current], points[prevVertex[current]], 5, "blue");
-        await sleep(500);
+        await sleep(200);
 
         if (current === end) {
             break;
